@@ -54,3 +54,18 @@ FROM
   Students
 GROUP BY
   student_gender;
+
+
+## name the group which has the least number of people
+
+WITH GenderCounts AS (
+  SELECT student_gender, COUNT(*) AS student_count
+  FROM Students
+  GROUP BY student_gender
+)
+SELECT student_gender
+FROM GenderCounts
+WHERE student_count = (
+  SELECT MIN(student_count)
+  FROM GenderCounts
+);
