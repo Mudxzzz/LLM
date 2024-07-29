@@ -3,3 +3,54 @@
 create database _______
 use _______
 create table table_name
+
+
+SQL QUERIES
+
+## get me the highest grade
+SELECT MAX(student_marks) AS highest_marks
+FROM Students;
+
+## second highest 
+SELECT MAX(student_marks) AS second_highest_mark
+FROM Students
+WHERE student_marks NOT IN (SELECT MAX(student_marks) FROM Students);
+
+## 3rd highest 
+WITH StudentMarks AS (
+  SELECT student_marks,
+         ROW_NUMBER() OVER (ORDER BY student_marks DESC) AS rn
+  FROM Students
+)
+
+## 2nd Lowest
+
+SELECT student_name
+FROM Students
+WHERE student_marks = (
+  SELECT MIN(student_marks)
+  FROM Students
+  WHERE student_marks > (
+    SELECT MIN(student_marks)
+    FROM Students
+  )
+);
+
+
+## count the number of students per gender
+
+SELECT student_gender, COUNT(*) AS student_count
+FROM Students
+GROUP BY student_gender;
+
+
+## now a code for students per gender and average marks per group
+
+SELECT
+  student_gender,
+  COUNT(*) AS student_count,
+  AVG(student_marks) AS average_marks
+FROM
+  Students
+GROUP BY
+  student_gender;
