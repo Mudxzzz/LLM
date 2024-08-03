@@ -1,0 +1,8 @@
+Site: https://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/
+
+## Hot vectors 
+
+[THE quick brown] fox jumps over the lazy dog
+[The QUICK brown fox] jumps over the lazy dog
+[The quick BROWN fox jumps] over the lazy dog
+The [quick brown FOX jumps over] the lazy dog
