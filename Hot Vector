@@ -6,3 +6,7 @@ Site: https://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/
 [The QUICK brown fox] jumps over the lazy dog
 [The quick BROWN fox jumps] over the lazy dog
 The [quick brown FOX jumps over] the lazy dog
+
+
+RAG LLM 
+- query -> Embedding Model (Change sentences to vectors) -> Vector DB -> Retrieved context -> LLM -> Response
